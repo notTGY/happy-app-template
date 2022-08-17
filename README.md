@@ -10,3 +10,5 @@ yarn start
 ```
 
 If you want to build just once - run `yarn build`
+
+for full documentation visit https://счастливыйконец.рф
