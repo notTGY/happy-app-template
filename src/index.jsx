@@ -1,4 +1,4 @@
-import happyFramework from '../happyFramework'
+import happyFramework from '@happyFramework'
 
 let count = 0
 let value = ''
@@ -9,15 +9,10 @@ const App = () => {
   console.log('render')
 
   return (
-    <div>
-      <h1>Счастливый фреймворк</h1>
-      <div><Button onclick={(e) => count++}/></div>
-      <div>current count: {count.toString()}</div>
-
-      <p>
-        Документация на <a href="https://счастливыйконец.рф/фреймворк">https://счастливыйконец.рф/фреймворк</a>
-      </p>
-    </div>
+    <center>
+      <div id="watch-display">
+      </div>
+    </center>
   )
 }
 

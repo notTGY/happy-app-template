@@ -1,7 +1,7 @@
 {
-  "name": "happy-app-template",
+  "name": "watch-ui",
   "version": "1.0.0",
-  "description": "happy framework app template",
+  "description": "",
   "main": "index.js",
   "repository": "https://github.com/notTGY/happy-app-template.git",
   "author": "notTGY <microcraft47@gmail.com>",
