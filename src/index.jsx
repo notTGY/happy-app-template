@@ -1,4 +1,4 @@
-import happyFramework from '../happyFramework'
+import happyFramework from '@happyFramework'
 
 let count = 0
 let value = ''
@@ -11,7 +11,7 @@ const App = () => {
   console.log('render')
 
   return (
-    <div>
+    <div id="root">
       <h1>Счастливый фреймворк</h1>
       <div>
         <Button onclick={(e) => count++}>+1</Button>
