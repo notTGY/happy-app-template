@@ -1,10 +1,20 @@
 import { dom, frag } from './jsx'
 
 const init = ($el, fn) => {
-  let prevJson = {$el, elem: $el.nodeName.toLowerCase()}
+  let prevTree = {$el, elem: $el.nodeName.toLowerCase()}, tmp
 
   const render = () => {
-    prevJson = El(prevJson, fn(), $el)
+    tmp = El(prevTree, fn(), $el)
+    deleteRec(prevTree)
+    prevTree = tmp
+  }
+
+  const deleteRec = (oldTree) => {
+    (oldTree.children??[]).map(deleteRec)
+    if (!oldTree.repaint) {
+      oldTree.$el.remove()
+      oldTree = null
+    }
   }
 
   const El = (prev, cur, root) => {
@@ -13,10 +23,12 @@ const init = ($el, fn) => {
 
     cur.elem = cur.elem || 'span'
 
-    if (!prev || (prev.elem !== cur.elem)) {
+    if (!prev || (tmp = prev.elem !== cur.elem)) {
+      if (prev && tmp) deleteRec(prev)
       cur.$el = document.createElement(cur.elem)
       root.append(cur.$el)
     } else {
+      prev.repaint = true
       cur.$el = prev.$el
       cur.cleanup = prev.cleanup
     }
